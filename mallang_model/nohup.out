@@ -1,0 +1,275 @@
+[I 09:52:55.420 NotebookApp] Serving notebooks from local directory: /home/lab08/django/mallang_model
+[I 09:52:55.420 NotebookApp] Jupyter Notebook 6.4.10 is running at:
+[I 09:52:55.420 NotebookApp] http://ip-172-31-10-97:8908/
+[I 09:52:55.420 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 09:52:57.613 NotebookApp] 404 GET /api/contents/django?type=directory&_=1698367373435 (175.117.217.230): No such file or directory: django
+[W 09:52:57.613 NotebookApp] No such file or directory: django
+[W 09:52:57.613 NotebookApp] 404 GET /api/contents/django?type=directory&_=1698367373435 (175.117.217.230) 0.950000ms referer=http://15.152.136.200:8908/tree/django
+[W 09:52:59.346 NotebookApp] 404 GET /tree/django (175.117.217.230) 36.980000ms referer=http://210.117.121.222/
+[I 09:55:13.276 NotebookApp] Saving file at /user/models.py
+[I 09:55:31.730 NotebookApp] Creating new notebook in /user
+[I 09:55:32.665 NotebookApp] Kernel started: 1b584996-6a1f-40de-aea4-b004e1646e13, name: python3
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: 2e3464c9-fd18-486d-bb01-a3867a9f6caf
+[I 09:55:58.839 NotebookApp] Saving file at /user/forms.py.ipynb
+[I 09:56:10.406 NotebookApp] Saving file at /user/forms.py.ipynb
+[I 09:56:12.335 NotebookApp] Starting buffering for 1b584996-6a1f-40de-aea4-b004e1646e13:c650ed09b3c94daf8901cbb697c09b28
+[W 09:56:16.914 NotebookApp] Notebook user/forms.py.ipynb is not trusted
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: e1832e96-1d46-4d12-b1e0-a7c07809f1a6
+[I 09:56:18.989 NotebookApp] Starting buffering for 1b584996-6a1f-40de-aea4-b004e1646e13:d73edd796e154f5d8d3bb75763018168
+[I 09:56:33.782 NotebookApp] Kernel shutdown: 1b584996-6a1f-40de-aea4-b004e1646e13
+[W 09:56:33.783 NotebookApp] delete /user/forms.py.ipynb
+[I 09:57:39.891 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.920000ms
+[I 09:57:39.893 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 0.450000ms
+[I 09:57:39.903 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 0.390000ms
+[I 09:57:39.903 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/calendar.css'%20%%7D (175.117.217.230) 0.360000ms
+[I 09:57:39.904 NotebookApp] 302 GET /files/static/images/base/titletag.png (175.117.217.230) 0.380000ms
+[I 09:57:39.905 NotebookApp] 302 GET /files/static/images/main/writebtn.png (175.117.217.230) 0.350000ms
+[I 10:01:10.887 NotebookApp] Saving file at /MalLang/urls.py
+[I 10:03:52.358 NotebookApp] Saving file at /MalLang/views.py
+[I 10:07:29.318 NotebookApp] Saving file at /static/css/base.css
+[I 10:14:08.140 NotebookApp] Saving file at /MalLang/views.py
+[I 10:16:34.659 NotebookApp] Saving file at /MalLang/views.py
+[I 10:16:56.850 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.900000ms
+[I 10:16:56.853 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 0.690000ms
+[I 10:16:56.855 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 0.610000ms
+[I 10:16:56.855 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/calendar.css'%20%%7D (175.117.217.230) 0.620000ms
+[I 10:16:56.857 NotebookApp] 302 GET /files/static/images/base/titletag.png (175.117.217.230) 0.740000ms
+[I 10:16:56.858 NotebookApp] 302 GET /files/static/images/main/writebtn.png (175.117.217.230) 0.580000ms
+[I 10:16:59.951 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.830000ms
+[I 10:16:59.952 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 1.120000ms
+[I 10:16:59.953 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 1.020000ms
+[I 10:16:59.955 NotebookApp] 302 GET /files/static/images/base/titletag.png (175.117.217.230) 0.550000ms
+[I 10:16:59.956 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/calendar.css'%20%%7D (175.117.217.230) 0.540000ms
+[I 10:16:59.957 NotebookApp] 302 GET /files/static/images/main/writebtn.png (175.117.217.230) 0.540000ms
+[I 10:21:11.796 NotebookApp] 302 GET / (175.117.217.230) 0.660000ms
+[I 10:21:12.065 NotebookApp] 302 GET / (175.117.217.230) 0.620000ms
+[I 10:26:53.968 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 0.860000ms
+[I 10:26:53.969 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/calendar.css'%20%%7D (175.117.217.230) 0.770000ms
+[I 10:26:53.970 NotebookApp] 302 GET /files/static/images/base/titletag.png (175.117.217.230) 0.750000ms
+[I 10:26:53.971 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.590000ms
+[I 10:26:53.974 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 0.590000ms
+[I 10:26:53.980 NotebookApp] 302 GET /files/templates/MalLang/%7B%7B%20dto.image.url%20%7D%7D (175.117.217.230) 0.620000ms
+[I 10:26:54.061 NotebookApp] 302 GET /files/static/images/main/cancelbtn.png (175.117.217.230) 0.770000ms
+[I 10:26:54.065 NotebookApp] 302 GET /files/static/images/main/writebtn.png (175.117.217.230) 0.670000ms
+[W 10:32:39.621 NotebookApp] Notebook Untitled.ipynb is not trusted
+[I 10:32:39.738 NotebookApp] Kernel started: c618ee27-bfa4-40eb-a67c-03c6efdabf0e, name: python3
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: 9651a551-95f3-46ad-945b-b7f9b984f82d
+[W 10:33:07.731 NotebookApp] Notebook Untitled.ipynb is not trusted
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: b138693d-074e-4085-ab16-d5f80e73358e
+[I 10:33:15.373 NotebookApp] Kernel shutdown: c618ee27-bfa4-40eb-a67c-03c6efdabf0e
+[W 10:33:15.382 NotebookApp] delete /Untitled.ipynb
+[I 10:33:15.487 NotebookApp] Kernel shutdown: c618ee27-bfa4-40eb-a67c-03c6efdabf0e
+[E 10:33:15.487 NotebookApp] Uncaught exception DELETE /api/sessions/87492c70-2ed3-41a4-b3da-4959fc8e3062 (175.117.217.230)
+    HTTPServerRequest(protocol='http', host='15.152.136.200:8908', method='DELETE', uri='/api/sessions/87492c70-2ed3-41a4-b3da-4959fc8e3062', version='HTTP/1.1', remote_ip='175.117.217.230')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1704, in _execute
+        result = await result
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 769, in run
+        yielded = self.gen.throw(*exc_info)  # type: ignore
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/sessions/handlers.py", line 162, in delete
+        yield maybe_future(sm.delete_session(session_id))
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 762, in run
+        value = future.result()
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 775, in run
+        yielded = self.gen.send(value)
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/sessions/sessionmanager.py", line 287, in delete_session
+        yield maybe_future(self.kernel_manager.shutdown_kernel(session['kernel']['id']))
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+        self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/utils.py", line 26, in wrapped
+        raise e
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/utils.py", line 23, in wrapped
+        return loop.run_until_complete(future)
+      File "/usr/local/lib/python3.6/dist-packages/nest_asyncio.py", line 89, in run_until_complete
+        return f.result()
+      File "/usr/lib/python3.6/asyncio/tasks.py", line 180, in _step
+        result = coro.send(None)
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/multikernelmanager.py", line 274, in _async_shutdown_kernel
+        if km.ready.exception():
+    asyncio.base_futures.InvalidStateError: Exception is not set.
+[W 10:33:15.498 NotebookApp] Unhandled error
+[E 10:33:15.498 NotebookApp] {
+      "Host": "15.152.136.200:8908",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Referer": "http://15.152.136.200:8908/notebooks/Untitled.ipynb",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.61"
+    }
+[E 10:33:15.498 NotebookApp] 500 DELETE /api/sessions/87492c70-2ed3-41a4-b3da-4959fc8e3062 (175.117.217.230) 13.050000ms referer=http://15.152.136.200:8908/notebooks/Untitled.ipynb
+[I 10:33:15.501 NotebookApp] Starting buffering for c618ee27-bfa4-40eb-a67c-03c6efdabf0e:fa61da0107e84a5197ce9e47a6326c35
+[I 10:33:15.501 NotebookApp] Kernel shutdown: c618ee27-bfa4-40eb-a67c-03c6efdabf0e
+[E 10:33:15.501 NotebookApp] Uncaught exception DELETE /api/sessions/87492c70-2ed3-41a4-b3da-4959fc8e3062 (175.117.217.230)
+    HTTPServerRequest(protocol='http', host='15.152.136.200:8908', method='DELETE', uri='/api/sessions/87492c70-2ed3-41a4-b3da-4959fc8e3062', version='HTTP/1.1', remote_ip='175.117.217.230')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1704, in _execute
+        result = await result
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 769, in run
+        yielded = self.gen.throw(*exc_info)  # type: ignore
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/sessions/handlers.py", line 162, in delete
+        yield maybe_future(sm.delete_session(session_id))
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 762, in run
+        value = future.result()
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 775, in run
+        yielded = self.gen.send(value)
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/sessions/sessionmanager.py", line 287, in delete_session
+        yield maybe_future(self.kernel_manager.shutdown_kernel(session['kernel']['id']))
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+        self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/utils.py", line 26, in wrapped
+        raise e
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/utils.py", line 23, in wrapped
+        return loop.run_until_complete(future)
+      File "/usr/local/lib/python3.6/dist-packages/nest_asyncio.py", line 89, in run_until_complete
+        return f.result()
+      File "/usr/lib/python3.6/asyncio/tasks.py", line 180, in _step
+        result = coro.send(None)
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/multikernelmanager.py", line 274, in _async_shutdown_kernel
+        if km.ready.exception():
+    asyncio.base_futures.InvalidStateError: Exception is not set.
+[W 10:33:15.502 NotebookApp] Unhandled error
+[E 10:33:15.502 NotebookApp] {
+      "Host": "15.152.136.200:8908",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Referer": "http://15.152.136.200:8908/notebooks/Untitled.ipynb",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.61"
+    }
+[E 10:33:15.502 NotebookApp] 500 DELETE /api/sessions/87492c70-2ed3-41a4-b3da-4959fc8e3062 (175.117.217.230) 3.310000ms referer=http://15.152.136.200:8908/notebooks/Untitled.ipynb
+[I 10:34:08.712 NotebookApp] 302 GET / (175.117.217.230) 0.650000ms
+[I 10:34:08.873 NotebookApp] 302 GET / (175.117.217.230) 0.620000ms
+[I 10:34:24.983 NotebookApp] Creating new notebook in 
+[I 10:34:25.890 NotebookApp] Kernel started: 753e60c4-d285-4898-b459-402e7d8f7b78, name: python3
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: 09b7a35e-33b6-4a94-96ec-0a86384fcdc9
+[I 10:36:25.998 NotebookApp] Saving file at /Untitled.ipynb
+[I 10:38:26.006 NotebookApp] Saving file at /Untitled.ipynb
+[I 10:40:25.903 NotebookApp] Saving file at /Untitled.ipynb
+[I 10:42:25.914 NotebookApp] Saving file at /Untitled.ipynb
+[I 10:44:45.603 NotebookApp] Starting buffering for 753e60c4-d285-4898-b459-402e7d8f7b78:febd05bf665b4819b5b0c89691815b5d
+[W 10:44:49.153 NotebookApp] Notebook Untitled.ipynb is not trusted
+[I 10:44:50.802 NotebookApp] Starting buffering for 753e60c4-d285-4898-b459-402e7d8f7b78:f256a28fe06547e39e52e208079ada3d
+[W 10:58:15.403 NotebookApp] Notebook Untitled.ipynb is not trusted
+[I 10:59:12.166 NotebookApp] Starting buffering for 753e60c4-d285-4898-b459-402e7d8f7b78:d0f463e1405444199cf2795bd27d246e
+[W 10:59:18.465 NotebookApp] Notebook Untitled.ipynb is not trusted
+[I 10:59:36.157 NotebookApp] Saving file at /Untitled.ipynb
+[I 10:59:36.178 NotebookApp] Starting buffering for 753e60c4-d285-4898-b459-402e7d8f7b78:67b0bea1b74e480e979f2204d717e960
+[I 11:02:44.932 NotebookApp] Saving file at /Untitled.ipynb
+[I 11:28:44.935 NotebookApp] Saving file at /Untitled.ipynb
+[I 11:32:19.290 NotebookApp] Starting buffering for 753e60c4-d285-4898-b459-402e7d8f7b78:55e74258d4d04346b43688121a32b112
+[I 11:32:38.791 NotebookApp] Saving file at /Untitled.ipynb
+[I 11:32:38.815 NotebookApp] Starting buffering for 753e60c4-d285-4898-b459-402e7d8f7b78:17cd9bddf7fb47be8f3fb66c9fcc3c98
+[C 11:38:08.457 NotebookApp] received signal 15, stopping
+[I 11:38:08.459 NotebookApp] Shutting down 1 kernel
+[I 11:38:08.461 NotebookApp] Kernel shutdown: 753e60c4-d285-4898-b459-402e7d8f7b78
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: 90a4eb02-7225-4182-9600-53cd5c1d76c9
+[IPKernelApp] WARNING | No such comm: 60ac7e96-f9a6-471a-aab8-6fe89e2832b4
+[IPKernelApp] WARNING | No such comm: add14ab8-7fe4-49a4-8044-f36cf6b3714d
+[IPKernelApp] WARNING | No such comm: d1b420be-115a-403c-947a-876290f05d1e
+[IPKernelApp] WARNING | No such comm: 3ee4a81f-1b86-4e48-8a3b-02d73493fc32
+[IPKernelApp] WARNING | No such comm: 3bd93f98-d4af-4c07-84a0-99292daa29d6
+[IPKernelApp] WARNING | No such comm: f627f5f6-6653-4313-b69a-811e039b4f1f
+[I 11:38:08.617 NotebookApp] Starting buffering for 753e60c4-d285-4898-b459-402e7d8f7b78:bc724a94fd1d4cb98bf85d3072c0c3ee
+[I 11:38:08.622 NotebookApp] Discarding 6 buffered messages for 753e60c4-d285-4898-b459-402e7d8f7b78:bc724a94fd1d4cb98bf85d3072c0c3ee
+[W 11:38:08.622 NotebookApp] Got events for closed stream <zmq.eventloop.zmqstream.ZMQStream object at 0x7fb3a430f550>
+[W 11:38:08.624 NotebookApp] Got events for closed stream <zmq.eventloop.zmqstream.ZMQStream object at 0x7fb3a430f550>
+[I 11:38:08.624 NotebookApp] Kernel shutdown: 753e60c4-d285-4898-b459-402e7d8f7b78
+[E 11:38:08.625 NotebookApp] Uncaught exception DELETE /api/sessions/b2a6166b-88f6-454a-b54a-99f5b033959b (175.117.217.230)
+    HTTPServerRequest(protocol='http', host='15.152.136.200:8908', method='DELETE', uri='/api/sessions/b2a6166b-88f6-454a-b54a-99f5b033959b', version='HTTP/1.1', remote_ip='175.117.217.230')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1704, in _execute
+        result = await result
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 769, in run
+        yielded = self.gen.throw(*exc_info)  # type: ignore
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/sessions/handlers.py", line 162, in delete
+        yield maybe_future(sm.delete_session(session_id))
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 762, in run
+        value = future.result()
+      File "/usr/local/lib/python3.6/dist-packages/tornado/gen.py", line 775, in run
+        yielded = self.gen.send(value)
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/sessions/sessionmanager.py", line 287, in delete_session
+        yield maybe_future(self.kernel_manager.shutdown_kernel(session['kernel']['id']))
+      File "/usr/local/lib/python3.6/dist-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+        self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/utils.py", line 26, in wrapped
+        raise e
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/utils.py", line 23, in wrapped
+        return loop.run_until_complete(future)
+      File "/usr/local/lib/python3.6/dist-packages/nest_asyncio.py", line 89, in run_until_complete
+        return f.result()
+      File "/usr/lib/python3.6/asyncio/tasks.py", line 180, in _step
+        result = coro.send(None)
+      File "/usr/local/lib/python3.6/dist-packages/jupyter_client/multikernelmanager.py", line 274, in _async_shutdown_kernel
+        if km.ready.exception():
+    asyncio.base_futures.InvalidStateError: Exception is not set.
+[W 11:38:08.626 NotebookApp] Unhandled error
+[E 11:38:08.627 NotebookApp] {
+      "Host": "15.152.136.200:8908",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Referer": "http://15.152.136.200:8908/notebooks/Untitled.ipynb",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.61"
+    }
+[E 11:38:08.628 NotebookApp] 500 DELETE /api/sessions/b2a6166b-88f6-454a-b54a-99f5b033959b (175.117.217.230) 8.600000ms referer=http://15.152.136.200:8908/notebooks/Untitled.ipynb
+[I 11:38:12.080 NotebookApp] Shutting down 0 terminals
+[I 13:38:18.946 NotebookApp] Serving notebooks from local directory: /home/lab08/django/mallang_model
+[I 13:38:18.946 NotebookApp] Jupyter Notebook 6.4.10 is running at:
+[I 13:38:18.946 NotebookApp] http://ip-172-31-10-97:8908/
+[I 13:38:18.946 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 13:38:23.551 NotebookApp] 302 GET / (175.117.217.230) 0.740000ms
+[I 13:38:23.779 NotebookApp] 302 GET / (175.117.217.230) 0.590000ms
+[I 14:09:23.196 NotebookApp] Saving file at /MalLang/views.py
+[I 14:16:27.211 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 1.470000ms
+[I 14:16:27.214 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 0.650000ms
+[I 14:16:27.222 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 0.650000ms
+[I 14:16:27.224 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/calendar.css'%20%%7D (175.117.217.230) 0.660000ms
+[I 14:16:27.227 NotebookApp] 302 GET /files/static/images/main/writebtn.png (175.117.217.230) 0.560000ms
+[I 14:16:27.228 NotebookApp] 302 GET /files/static/images/base/titletag.png (175.117.217.230) 0.600000ms
+[I 14:17:39.377 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.900000ms
+[I 14:17:39.388 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 0.920000ms
+[I 14:17:39.389 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 0.790000ms
+[I 14:17:39.390 NotebookApp] 302 GET /files/templates/MalLang/%7B%7B%20image%20%7D%7D (175.117.217.230) 0.670000ms
+[I 14:18:40.831 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 0.900000ms
+[I 14:18:40.834 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.760000ms
+[I 14:18:40.837 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 0.610000ms
+[I 14:18:40.839 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/calendar.css'%20%%7D (175.117.217.230) 0.540000ms
+[I 14:18:40.840 NotebookApp] 302 GET /files/static/images/base/titletag.png (175.117.217.230) 0.530000ms
+[I 14:18:40.841 NotebookApp] 302 GET /files/templates/MalLang/%7B%7B%20dto.image.url%20%7D%7D (175.117.217.230) 0.630000ms
+[I 14:18:40.922 NotebookApp] 302 GET /files/static/images/main/cancelbtn.png (175.117.217.230) 0.720000ms
+[I 14:18:40.930 NotebookApp] 302 GET /files/static/images/main/writebtn.png (175.117.217.230) 0.760000ms
+[I 16:20:23.032 NotebookApp] The port 8908 is already in use, trying another port.
+[I 16:20:23.033 NotebookApp] Serving notebooks from local directory: /home/lab08/django/mallang_model
+[I 16:20:23.033 NotebookApp] Jupyter Notebook 6.4.10 is running at:
+[I 16:20:23.033 NotebookApp] http://ip-172-31-10-97:8909/
+[I 16:20:23.033 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 16:20:31.969 NotebookApp] 302 GET / (175.117.217.230) 0.570000ms
+[I 16:20:32.193 NotebookApp] 302 GET / (175.117.217.230) 0.610000ms
+[I 16:20:59.773 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.870000ms
+[I 16:20:59.778 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 1.080000ms
+[I 16:20:59.778 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 1.030000ms
+[I 16:20:59.783 NotebookApp] 302 GET /files/templates/MalLang/%7B%7B%20image%20%7D%7D (175.117.217.230) 0.580000ms
+[I 18:32:40.298 NotebookApp] 302 GET / (162.216.150.231) 0.620000ms
+[I 18:32:40.635 NotebookApp] 302 GET /tree? (162.216.150.231) 0.840000ms
+[I 23:46:23.761 NotebookApp] The port 8908 is already in use, trying another port.
+[I 23:46:23.762 NotebookApp] The port 8909 is already in use, trying another port.
+[I 23:46:23.762 NotebookApp] The port 8910 is already in use, trying another port.
+[I 23:46:23.762 NotebookApp] The port 8911 is already in use, trying another port.
+[I 23:46:23.762 NotebookApp] The port 8912 is already in use, trying another port.
+[I 23:46:23.763 NotebookApp] Serving notebooks from local directory: /home/lab08/django/mallang_model
+[I 23:46:23.763 NotebookApp] Jupyter Notebook 6.4.10 is running at:
+[I 23:46:23.763 NotebookApp] http://ip-172-31-10-97:8968/
+[I 23:46:23.763 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 23:51:17.242 NotebookApp] Saving file at /MalLang/views.py
+[I 23:53:27.200 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base.css'%20%%7D (175.117.217.230) 0.860000ms
+[I 23:53:27.213 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/base_font.css'%20%%7D (175.117.217.230) 0.670000ms
+[I 23:53:27.214 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/main.css'%20%%7D (175.117.217.230) 0.580000ms
+[I 23:53:27.219 NotebookApp] 302 GET /files/templates/MalLang/%7B%%20static%20'css/calendar.css'%20%%7D (175.117.217.230) 1.010000ms
+[I 23:53:27.219 NotebookApp] 302 GET /files/static/images/base/titletag.png (175.117.217.230) 0.990000ms
+[I 23:53:27.220 NotebookApp] 302 GET /files/static/images/main/writebtn.png (175.117.217.230) 0.520000ms

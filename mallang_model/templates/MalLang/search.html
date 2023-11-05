@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+</head>
+
+<style>
+    @font-face {
+        font-family: 'Yeongdeok_Sea';
+        src: url('../../static/images/search/Yeongdeok_Sea.ttf') format('truetype');
+    }
+    
+    .background {
+        height: 97vh;
+        background-image: url("../../static/images/search/bg3.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    #title2{
+        height: 150px;
+        width: 700px;
+        position: relative;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    #title2 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #title2 span {
+        position: absolute; /* 텍스트를 부모 요소에 상대적으로 배치합니다. */
+        top: 40%; /* 텍스트가 부모 요소의 세로 중앙에 배치됩니다. */
+        left: 50%; /* 텍스트가 부모 요소의 가로 중앙에 배치됩니다. */
+        transform: translate(-50%, -50%); /* 중앙 정렬을 수행합니다. */
+        color: black;
+        font-family: 'Yeongdeok_Sea';
+        font-size: 30px;
+        z-index: 1;
+    }
+    
+    
+    .diary-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px; /* 최대 너비 설정 */
+        width: 100%; /* 너비 100%로 설정 */
+        justify-content: center; /* 중앙 정렬로 변경 */
+    }
+    
+    .diary-item {
+        position: relative;
+        margin-right: 30px; /* 오른쪽 간격 설정 */
+        margin-bottom: 30px; /* 아래쪽 간격 설정 */
+        cursor: pointer;
+    }
+    
+    .login_btn button {
+        background: none; /* 배경 없애기 */
+        border: none; /* 테두리 없애기 */
+    }
+    
+    
+    .login_btn button img {
+        width: 80%; /* 이미지의 너비 조정 */
+        top: 20%;
+        height: auto; /* 이미지의 높이를 자동으로 조정하여 비율을 유지합니다. */
+        cursor: pointer;
+    }
+    
+    .diary-item:hover {
+        transform: scale(1.1);
+        transition: transform 0.1s;
+    }
+    
+    .mydiarydate {
+        font-family: "Yeongdeok_Sea";
+        font-size: 17px;
+        cursor: pointer;
+    }
+    
+    .newcaption {
+        font-family: "Yeongdeok_Sea";
+        font-size: 12px;
+        width: 250px;
+        cursor: pointer;
+    }
+
+    /* 검색창 */
+    .search-box{
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 30px;
+    background-color: #fff;
+    border: 3px solid #F2D026;
+    border-radius: 30px;
+    transition: 0.4s;
+    width:30px;
+    }
+    .search-box:hover{
+    box-shadow: 0px 0px .5px 1px #F2D026;
+    width: 282px;
+    }
+    .search-btn{
+    text-decoration: none;
+    float: right;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F2D026;
+    }
+    .search-box:hover > .search-btn{
+    background-color: #fff;
+    }
+    .search-txt{
+    display: flex;
+    padding: 0;
+    width: 0px;
+    border:none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 1rem;
+    line-height: 30px;
+    transition: .4s;
+    }
+    .search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+    }
+
+    .mainbtn {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    }
+    
+    .btn1 {
+        cursor: pointer;
+    }
+
+    .btn1:hover {
+        transform: scale(1.05);
+        transition: transform 0.1s;
+    }
+
+</style>
+    
+
+<body class="background">
+    <br><br><br>
+    <br><br><br>   <br><br><br><br><br><br>
+    <div id="title2">
+        <img src="../../static/images/search/titletag.png" alt="제목 이미지" height="150" width="700">
+        <span>내가 쓴 일기 검색</span>
+    </div>
+
+    <br><br><br>
+
+
+
+    <div class="search-box">
+        <input type="text" class="search-txt" id="search-input" placeholder="Type to search">
+        <a class="search-btn" id="search-button" href="#">
+            <i class="fas fa-search"></i>
+        </a>
+    </div>
+
+    <div class="mainbtn">
+        <button class="btn1" onclick="location.href='{% url 'main' %}'" style="border: 0px; background: none; "><img class="btn1" src="../../static/images/search/gomain.png" style="width:150px;"></button>
+    </div>
+
+
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+
+    // 검색 버튼 클릭 이벤트 핸들러
+    searchButton.addEventListener('click', function() {
+        performSearch();
+    });
+
+    // 엔터 키 누를 때 검색 수행
+    searchInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+
+    function performSearch() {
+        const keyword = searchInput.value;
+        if (keyword) {
+            window.location.href = `?search=${keyword}`;
+        }
+    }
+});
+    </script>
+
+</html>

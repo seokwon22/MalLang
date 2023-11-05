@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <style>
+         body {
+            text-align: center; /* body 안의 요소를 가운데 정렬 */
+        }
+        .table-container {
+            /* position:absolute; */
+            left:50%;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 700px; /* 테이블 컨테이너의 최대 너비 */
+        }
+    </style>
+</head>
+<script>
+    var date = "{{ date }}";
+    var weather = "{{ weather }}";
+    var emoji="{{ emoji }}";
+    var diary = "{{ diary }}";
+    var save = "{{ save }}";
+</script>
+<body class="background">
+    <br><br><br>
+    <div class="table-container" style="display: flex; justify-content: center;">
+        <table style="width: 350px; border: 1px solid black;">
+            <tr class="top">
+                <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날짜</th>
+                <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ date }}</th>
+                <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날씨</th>
+                <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ weather }}</th>
+                <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">기분</th>
+                <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ emoji }}</th>
+            </tr>
+            <tr>
+                <td style="border:2px solid #444444; font-size: 15px;" bgcolor="#FFFFFF" colspan="6" height="350">
+                <img id="generatedImage" src="../../{{ save }}" alt="Generated Image" style="max-width: 100%; height: auto;">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" height="300" bgcolor="#FFFFFF" style="font-family: SSShinb7Regular; font-size: 15px; text-align: left; vertical-align: top;">{{ diary }}</td>
+            </tr>
+        </table>
+    </div>
+    <br><br><br>
+    <button type="button" onclick="location.href = '../main'">메인으로 돌아가기</button>
+        
+        
+<br><br><br>
+</body>
+</html>

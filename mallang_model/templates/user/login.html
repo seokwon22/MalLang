@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body class="bg-img">
+    <br><br><br>
+
+
+    <div id="left_visual"></div>
+    <div id="right_visual"></div>
+    <div class="login_back"></div>
+
+
+    <div class="container" >
+        <img src="../../static/images/base/login.png" alt="제목 이미지" height="500">
+        <form action="{% url 'user:login' %}" method="post" style="position: absolute; top: 42%; left: 19%;">{% csrf_token %}
+            <input type="text" name="user_id" placeholder="ID" style="margin:0px 0px 20px 0px; padding:0px 0px 0px 5px; border:none; width:300px; height:50px; font-size:15px;">
+            <input type="password" name="password" placeholder="PASSWORD" style="border:none; padding:0px 0px 0px 5px; width:300px; height:50px; font-size:15px;">
+        <div style="margin-top:13%; margin-left:-2%;">
+            <span class= "login_btn" style="text-align:center; width:150px; float:left; padding: 0px 0px 0px 10px;">
+                <button type="submit">
+                    <img src="../../static/images/login/ok.png" alt="Login">
+                </button>
+            </span>
+            <span class="not_yet" style="text-align:center; width:50px; margin-left:15px;">
+                <a href="{% url 'user:register' %}">
+                    <img src="../../static/images/login/register.png">
+                </a>
+            </span>
+
+        </div>
+        </form>
+            <p class="error">{{ error }}</p>
+            <!-- 아직 회원이 아니신가요 -->
+    </div>
+
+</body>
+</html>

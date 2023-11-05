@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body class="background">
+    {% csrf_token %}
+    <br><br><br>
+
+    <div id="title2">
+        <img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+        <span>나의 그림일기</span>
+    </div>
+
+    <br><br><br>
+
+
+<div style="display: flex; justify-content: center;">
+    <div class="diary-container">
+
+<!-- 여기서부터 if-->
+        {% for diary in diary_list %}
+        <form id="submitForm" method="post" action="{% url 'diaryshow' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="date" value="{{ diary.diarydate }}">
+            <input type="hidden" name="weather" value="{{ diary.diaryweather }}">
+            <input type="hidden" name="emoji" value="{{ diary.diaryemoji }}">
+            <input type="hidden" name="diary_text" value="{{ diary.diarycontent }}">
+            <input type="hidden" name="image_text" value="{{ diary.image }}">
+            
+            <div class="diary-item" type="submit">
+                <img src="../../static/images/main/memo1.png" height="300" >
+                <div style="position: absolute; top: 20%;"> <!--이미지+글 위치-->
+                    <span class= "login_btn" style="text-align:center; float:left;" >
+                        <span class="mydiarydate">{{ diary.diarydate }}</span>
+                        <button type="submit">
+                            <img src='../../{{ diary.image }}'>
+                         <br><br>
+                         <div class="newcaption">
+                                {{ diary.diarycontent }}
+                         </div>
+                        </button>
+                    </span>
+                </div>
+         </form>
+                <form  action="{% url 'diaryshow' %}" method="post" enctype="multipart/form-data">
+        		
+            		
+            	</form>
+            </div>
+        {% endfor %}
+<!--
+이 하나가 세트
+-->
+            
+
+
+    </div>
+    </div>
+</body>
+<style>
+
+
+.diary-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px; /* 최대 너비 설정 */
+    width: 100%; /* 너비 100%로 설정 */
+    justify-content: center; /* 중앙 정렬로 변경 */
+}
+
+.diary-item {
+    position: relative;
+    margin-right: 30px; /* 오른쪽 간격 설정 */
+    margin-bottom: 30px; /* 아래쪽 간격 설정 */
+    cursor: pointer;
+}
+
+.login_btn button {
+    background: none; /* 배경 없애기 */
+    border: none; /* 테두리 없애기 */
+}
+
+
+.login_btn button img {
+    width: 80%; /* 이미지의 너비 조정 */
+    top: 20%
+    height: auto; /* 이미지의 높이를 자동으로 조정하여 비율을 유지합니다. */
+    cursor: pointer;
+}
+
+.diary-item:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s;
+}
+
+.mydiarydate {
+    font-family: "Yeongdeok_Sea";
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.newcaption {
+    font-family: "Yeongdeok_Sea";
+    font-size: 13px;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+</style>
+
+</html>

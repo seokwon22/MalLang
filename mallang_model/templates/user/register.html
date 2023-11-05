@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body class="bg-img">
+    <br><br><br>
+    <div id="left_visual"></div>
+    <div id="right_visual"></div>
+    <div class="login_back"></div>
+
+
+        {% csrf_token %}
+         <div class="container">
+         <img src="../../static/images/base/register.png" alt="제목 이미지" height="500">
+        <!-- ID, PW 입력 -->
+         <form action="{% url 'user:register' %}" method="post" style="position: absolute; top: 35%; left: 19%;"> {% csrf_token %}
+                <input type="text" name="nickname" placeholder="NICKNAME" style="margin-bottom:5px; padding-left:10px; border:none; width:300px; height:40px; font-size:15px;">
+                <input type="text" name="user_id" placeholder="ID" style="margin-bottom:5px; border:none; padding-left:10px; width:300px; height:40px; font-size:15px;" oninput="handleOnInput(this)">
+                <input type="password" name="password" placeholder="PASSWORD" style="margin-bottom:5px; border:none; padding-left:10px; width:300px; height:40px; font-size:15px;">
+                <input type="password" name="passwordch" placeholder="PASSWORD CHECK" style="border:none; padding-left:10px; width:300px; height:40px; font-size:15px;">
+            <!-- 로그인 버튼 -->
+            <div style="margin-top:8%;">
+                <span class= "login_btn" style="text-align:center; width:140px; float:left; padding: 0px 0px 0px 10px;">
+                    <button type="submit">
+                        <img src="../../static/images/login/registerbtn.png" href="{% url 'user:login' %}">
+                    </button>
+                </span>
+
+                <span class="not_yet" style="text-align:center; width:140px; margin-left:10px;">
+                    <a href="{% url 'user:login' %}">
+                        <img src="../../static/images/login/cancelbtn.png">
+                    </a>
+                </span>
+            </div>
+            </form>
+         </div>
+
+
+</body>
+
+<script>
+    function handleOnInput(e) {
+      e.value = e.value.replace(/[^A-Za-z0-9]/ig, '');
+    }
+
+</script>
+</html>

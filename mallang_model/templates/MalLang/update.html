@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+    <style>
+        #update_button {
+            position: absolute;
+			top: 110%;
+    		right: 40%;
+			transform: translate(-50%, -50%);
+        }
+        .cancel_button:hover {
+    		cursor: pointer;
+			transform: scale(1.1);
+			transition: transform 0.1s;
+		}
+
+		.write_button:hover {
+			cursor: pointer;
+			transform: scale(1.1);
+			transition: transform 0.1s;
+		}
+        button[type="submit"] {
+            background: none;
+            border: none;
+        }   
+    </style>
+</head>
+
+<body class="bg-img">
+		<br><br><br>
+
+		<div id="left_visual3"></div>
+		<div id="right_visual"></div>
+		<div id="title2">
+            <img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+			<span>수정</span>
+		</div>
+
+      <form action="{% url 'update' dto.id %}" method="post" id="updateform" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="hidden" name="id" value="{{ dto.id }}">
+
+        <div style="width: 1500px; height: 500px; position: absolute; margin-top: 150px; left: 50%; transform: translate(-50%, -50%);">	
+          <table border="1" style="position: absolute; top: 56%; left: 50%; transform: translate(-50%, -50%);font-family: Yeongdeok_Sea;">
+                <tr>
+                    <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">작성자</th>
+                    <td style="font-family: Yeongdeok_Sea;" bgcolor="#FFFFFF">{{ dto.nickname }}</td>
+                </tr>
+                <tr>
+                    <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">제목</th>
+                    <td style="font-family: Yeongdeok_Sea;" bgcolor="#FFFFFF"><input type="text" name="title" value="{{ dto.title }}" style="width: 100%; font-family: Yeongdeok_Sea;"></td>
+                </tr>
+                <tr>
+                    <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">이미지</th>
+			        <td style="font-family: Yeongdeok_Sea; text-align: center; " bgcolor="#FFFFFF">
+                        <img id="originalImage" src="{{ dto.image.url }}" alt="" height="200" name="image">
+                        <input type="hidden" name="image" value="{{ dto.image.url }}">
+                        <img id="preview" src="" alt="" >
+                        <input type="file" name="image_file"  accept="image/*" onchange="updatePreview(event)" >
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">내용</th>
+                    <td style="font-family: Yeongdeok_Sea;" bgcolor="#FFFFFF"><textarea rows="10" cols="60" name="content" style="font-family: Yeongdeok_Sea; width: 100%;">{{ dto.content }}</textarea></td>
+                </tr>
+            </table>
+                <div id="update_button">
+                    <a href="/board">
+                        <img src="../../static/images/main/cancelbtn.png" alt="취소버튼" class="cancel_button" style="top:18px; right:10px; position: absolute;" width="83px">
+                    </a>
+
+                    <!--form태그에 경로 있어서 경로 따로 없어도됨-->
+                    <button type="submit">
+                        <img src="../../static/images/main/writebtn.png" alt="버튼" class="write_button" style="position: absolute;" width="80px">
+                    </button>
+                </div>
+         </div>
+      </form>
+
+
+<!--미리보기 자바스크립트-->
+<script>
+function updatePreview(event) {
+    var input = event.target;
+    var preview = document.getElementById('preview');
+    var originalImage = document.getElementById('originalImage');
+    var reader = new FileReader();
+
+    reader.onload = function(){
+        preview.src = reader.result;
+        originalImage.style.display = 'none';
+
+
+//         var button = document.getElementById('update_button');
+//         var imgHeight = img.clientHeight;
+
+//         if (imgHeight > 100) { // 이미지의 높이가 150px 이상일 때
+//             button.style.marginTop = "80px";
+//         } else {
+//             button.style.marginTop = "20px";
+//         }
+//         };
+//     reader.readAsDataURL(input.files[0]);
+// }
+
+        var button = document.getElementById('update_button');
+        var img = document.getElementById('preview'); // 미리보기 이미지 요소
+        var imgHeight = img.clientHeight;
+        var imgwidth = img.clientWidth;
+
+        if (imgHeight > 200) { // 이미지의 높이가 300px 이상일 때
+            img.style.height = "200px"; // 높이를 300px로 제한
+            img.style.width = "auto"; // 가로 크기를 자동으로 조정
+            // button.style.marginTop = "40px";
+        } else {
+            // button.style.marginTop = "20px";
+        }
+
+        if (imgwidth > 300) { // 이미지의 높이가 300px 이상일 때
+            img.style.width = "300px"; // 높이를 300px로 제한
+            img.style.height = "auto"; // 가로 크기를 자동으로 조정
+            // button.style.marginTop = "40px";
+        } else {
+            // button.style.marginTop = "20px";
+        }
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

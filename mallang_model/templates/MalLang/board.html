@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+    <style>
+        #btncursor img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: transform 0.1s;
+        }
+    </style>
+</head>
+<body class="bg-img">
+    <br><br><br>
+
+    <div id="left_visual3"></div>
+    <div id="right_visual"></div>
+    <div id="title2">
+        <img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+        <span>나의 그림일기를 공유해 주세요</span>
+    </div>
+
+
+    <div style="width: 1500px; height: 500px; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);">
+        <div id="btncursor">
+           
+        <img src="../../static/images/main/writebtn.png" alt="버튼" onclick="location.href='/boardwrite'" style="position: absolute; top: 80%; left: 63%;" width="80px">
+        <img src="../../static/images/main/gomain.png" alt="버튼" onclick="location.href='/main'" style="position: absolute; top: 80%; left: 56%;" height="50px">
+        </div>
+        <table style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);font-family: Yeongdeok_Sea;">
+            <col width="50">
+            <col width="100">
+            <col width="350">
+            <col width="100">
+            <tr>
+                <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">번호</th>
+                <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">작성자</th>
+                <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">제목</th>
+                <th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">날짜</th>
+            </tr>
+            {% if not list %}
+			<tr>
+				<th colspan="4" style="font-family: Yeongdeok_Sea;"><br><br><br><br><br><br><br><br>----------작성된 글이 없습니다----------<br><br><br><br><br><br><br><br><br><br></th>
+			</tr>
+		    {% else %}
+			    {% for dto in list %}
+                    <tr>
+                        <td style="font-family: Yeongdeok_Sea; text-align: center;">{{ dto.id }}</td>
+                        <td style="font-family: Yeongdeok_Sea; text-align: center;">{{ dto.nickname }}</td>
+                        <td style="font-family: Yeongdeok_Sea; text-align: center;"><a href="{% url 'detail' dto.id %}" style="font-family: Yeongdeok_Sea; text-align: center;">{{ dto.title }}</a></td>
+                        <td style="font-family: Yeongdeok_Sea; text-align: center;">{{ dto.date|date:"Y-m-d" }}</td>
+                    </tr>
+			{% endfor %}
+		{% endif %}
+		<tr>
+			<td colspan="4" align="right">
+
+			</td>
+		</tr>
+
+        </table>
+
+        <div style="position: absolute; top: 75%; left: 43%; font-family: Yeongdeok_Sea;">
+            <a href="?page=1" style="font-family: Yeongdeok_Sea;">처음으로</a>
+            {% if list.has_previous %}
+            <a href="?page={{ list.previous_page_number }}" style="font-family: Yeongdeok_Sea;">이전</a>
+            <!--
+            page_obj의 이전 페이지 넘버
+            -->
+            {% else %}
+                <a style="font-family: Yeongdeok_Sea;">이전</a>
+            {% endif %}
+    
+            {% for page_num in list.paginator.page_range %}
+                {% if page_num == list.number %}
+                    <b style="font-family: Yeongdeok_Sea;">{{ page_num }}</b>
+                {% else %}
+                    <a href="?page={{ page_num }}" style="font-family: Yeongdeok_Sea;">{{ page_num }}</a>
+                {% endif %}
+            {% endfor %}
+    
+            {% if list.has_next %}
+                <a href="?page={{ list.next_page_number }}" style="font-family: Yeongdeok_Sea;">다음</a>
+            {% else %}
+                <a style="font-family: Yeongdeok_Sea;">다음</a>
+            {% endif %}
+    
+            <a href="?page={{ list.paginator.num_pages }}" style="font-family: Yeongdeok_Sea;">끝으로</a>
+        </div>
+    </div>
+
+    <br>    <br>    <br>    <br>    <br>
+    <br>    <br>    <br>    <br>    <br><br><br>
+
+    
+</body>
+
+<style>
+    #btncursor {
+        cursor: pointer;
+    }
+</style>
+
+</html>

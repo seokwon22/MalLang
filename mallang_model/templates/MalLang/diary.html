@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<style>
+    #rebutton img:hover{
+        transform: scale(1.1);
+    }
+</style>
+
+
+<body class="background">
+
+    <div id="title">
+        <img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+        <span>오늘의 일기</span>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="rebutton" style="left: 58%;">
+        <button id="refreshButton" style="display: none; width: 110px; border:none;">
+            <img src="../../static/images/main/reemoji.png" alt="기분 다시 선택" class="write_button" style="position: absolute; cursor:pointer;" width="110px">
+        </button>
+    <br>
+    </div>
+    <br>
+    <br>
+    <form method="POST" action="{% url 'diarycheck' %}"> {% csrf_token %}
+
+    <table align="center" width="500px">
+        <tr class="top">
+            <th scope="col" width="10%" style="font-size: 20px;" bgcolor="#F2D026">날짜</th>
+                <td scope="col" width="20%" style="font-family: Yeongdeok_Sea; font-size: 16px; text-align: center; border: none;" bgcolor="#FFFFFF">
+                    <input type="date" name="date" style="border-style: none; font-family: Yeongdeok_Sea;" id="dateInput">
+                </td>
+            <th scope="col" width="10%" style="font-size: 20px;" bgcolor="#F2D026">날씨</th>
+                <td scope="col" width="10%" style="font-family: Yeongdeok_Sea; font-size: 16px; text-align: center;" bgcolor="#FFFFFF">
+                    <textarea id="weather" name="weather" style="border: none; height: 50%; font-family: Yeongdeok_Sea;" placeholder="날씨를 입력하세요"></textarea>
+                </td>
+            <th scope="col" width="10%" style="font-size: 20px;" bgcolor="#F2D026">기분</th>
+                <td scope="col" width="30%" style="font-family: Yeongdeok_Sea; font-size: 16px; text-align: center; border: none;" bgcolor="#FFFFFF">
+                    <select id="emotionSelect" style="border-style: none; font-family: Yeongdeok_Sea;">
+                      <option value="" disabled selected>기분 선택</option>
+                      <option value="기쁨">기쁨</option>
+                      <option value="분노">분노</option>
+                      <option value="공포">공포</option>
+                      <option value="혐오">혐오</option>
+                      <option value="슬픔">슬픔</option>
+                      <option value="당황">당황</option>
+                      <option value="그외">그 외</option>
+                    </select>
+                    <input type="hidden" id="emoji" name="emoji">
+                    <div id="resultDiv" style="display: none;"></div>
+                </td>
+        </tr>
+
+        <tr>
+            <td colspan="6" height="300" bgcolor="#FFFFFF">
+                <textarea onkeydown="return (event.key !== 'Enter');" id="userInput" name="diary" style="font-family: Yeongdeok_Sea; height: 90%; width: 99%; border: none;"  placeholder="일기를 입력하세요. 일기는 세 문장 이상 작성해 주세요."></textarea>
+            </td>
+        </tr>
+    </table>
+
+    <div id="diarybutton">
+        <a href="/main">
+            <img src="../../static/images/main/cancelbtn.png" alt="취소버튼" height="55">
+        </a>
+        <button type="button" id="createDiaryButton" style="border:none; background: none;" onclick="processDiary()">
+            <img src="../../static/images/main/diarybtn.png" alt="그림일기만들기버튼" height="55" >
+        </button>
+    </div>
+    </form>
+    <br><br>
+</body>
+
+<script>
+    function processDiary() {
+    // textarea의 값을 가져옵니다.
+    var userInput = document.getElementById("userInput").value;
+    console.log(userInput)
+    
+    // 줄바꿈 문자 \n을 모두 없애고, 공백으로 대체합니다.
+
+
+    // form 요소를 가져옵니다.
+    var form = document.querySelector("form");
+
+    // 폼 데이터를 생성하고 diary 값을 추가합니다.
+    var formData = new FormData(form);
+    formData.set("diary", userInput);
+
+    // POST 요청을 보냅니다.
+    fetch('/diarycheck', {
+        method: 'POST',
+        body: formData
+    }).then(response => {
+        // POST 요청 완료 후 다음 동작을 정의할 수 있습니다.
+        // 여기서는 페이지를 이동하지 않았습니다.
+    });
+}
+
+
+    const emojis = {
+    '기쁨': ['ᑦ(⁎◕ ˕ ◕)ᐣ', '◠‿◠', '(˵⚈ε⚈˵)', '✿˘◡˘✿', 'ദ്ദി(⩌ᴗ⩌ )', 'ദ്ദി ˘ ͜ʖ ˘)', '٩(◕ᗜ◕)و', '(˶˚ ᗨ ˚˶)', '₍₍ (⚆ᗜ⚆)⁾⁾', '(⋆ˆ ³ ˆ)♥'],
+    '분노': ['( -᷅_-᷄)', '(ʘ言ʘ╬)', 'ᕕ(ꐦ°᷄д°᷅)ᕗ', '( ·•︡_•︠)', '(°ㅂ° ╬)', '୧(๑•̀ᗝ•́)૭', '( 　`-` )ノ)`-` )'],
+    '공포': ['━(◯Δ◯∥)━ン', '｡｡(ﾉ´д)ﾉ', 'Σ( Д )ﻌﻌﻌﻌ⊙ ⊙', 'ε=ε=ε=(*ﾉ´Д｀)ﾉﾟ', 'ε=ε=(⊃≧□≦)⊃', '( ⚆ _ ⚆ )', 'ヽ ( ꒪д꒪ )ﾉ', '〣( ºΔº )〣', '(⊃д⊂)', 'ヽ ( ꒪д꒪ )ﾉ'],
+    '혐오': ['( 乂˙-˙)', '( ✋˙࿁˙ )', '‍ ̿ ̿̿̿̿\̵͇̿̿\=(•̪●)=/̵͇̿̿/̿̿ ̿ ̿', '( -_•)╦̵̵̿╤─', '༼⺤`皿′⺤༽'],
+    '슬픔': ['૮꒰๑´ `๑꒱ა', '(•́ι_•̀*)', 'ପ(｡•᎔•｡)ଓ', '(  ˊ࿁ˋ ) ᐝ', '(˃̣̣̣̣̣̣བ˂̣̣̣̣̣̣)', '｡･ﾟﾟ･(>д<)･ﾟﾟ･｡', '｡ﾟ(*´□`)ﾟ｡', '٩(இ ⌓ இ๑)۶', '｡°(°´ᯅ`°)°｡'],
+    '당황': ['(；☉_☉)','ヽ( ຶ▮ ຶ)ﾉ!!!', '¯\(ºдಠ)/¯', 'ː̗̀(☉.☉)ː̖́ ', '(;＾◇＾;)ゝ', '( -_・)?'],
+    '그외': ['ʕ•̫͡•ʕ*̫͡*ʕ••ʔ-̫͡-ʕ•̫͡•ʔ*̫͡*ʔ-̫͡-ʔ', '⁺. ⊹˚₊ ₊·(੭  · ˕ · )੭‧*', '|ω・）', '(:3[▓▓]', '◴_◶', 'Ｃ≡(・。・Ｃ≡)≡≡≡', '[̲̅$̲̅(̲̅˵ ͡~ヮ ͡°˵)̲̅$̲̅]', '⧹╲⎝⧹༼◕ ͜ﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞﱞo.◕ ༽⧸⎠╱⧸', '(´・᎖・`)', '⊙﹏⊙']
+    };
+
+    // 드롭다운 변경 시 호출되는 함수
+    function updateEmotion() {
+    const select = document.getElementById('emotionSelect');
+    const selectedEmotion = select.value;
+    const emojiList = emojis[selectedEmotion];
+    if (emojiList) {
+        const randomEmoji = emojiList[Math.floor(Math.random() * emojiList.length)];
+
+        // 결과를 표시하고 드롭다운을 숨김
+        document.getElementById('resultDiv').textContent = `${randomEmoji}`;
+        select.style.display = 'none';
+        document.getElementById('resultDiv').style.display = 'block';
+        refreshButton.style.display = 'inline-block';
+
+        // 선택된 이모지를 숨겨진 input 필드에 저장
+        document.getElementById('emoji').value = randomEmoji;
+
+    }
+    }
+
+    // 드롭다운 변경 이벤트 리스너 추가
+    const select = document.getElementById('emotionSelect');
+    select.addEventListener('change', updateEmotion);
+
+    // 새로고침 버튼 클릭 시 호출되는 함수
+    function refreshPage() {
+
+    // 드롭다운과 결과를 초기 상태로 되돌림
+    emotionSelect.style.display = 'inline-block';
+    document.getElementById('resultDiv').style.display = 'none';
+    document.getElementById('resultDiv').textContent = '';
+    refreshButton.style.display = 'none';
+    }
+
+    // 새로고침 버튼 클릭 이벤트 리스너 추가
+    const refreshButton = document.getElementById('refreshButton');
+    refreshButton.addEventListener('click', refreshPage);
+
+    // 그림일기 만들기 버튼 누르면 제출
+    document.addEventListener("DOMContentLoaded", function () {
+    const createDiaryButton = document.getElementById("createDiaryButton");
+    createDiaryButton.addEventListener("click", function (e) {
+        e.preventDefault();  // 기본 동작 중단 (페이지 이동 방지)
+        // 여기에서 폼을 선택하고 제출하는 로직을 추가합니다
+        const form = document.querySelector("form");
+        if (form) {
+            form.submit();  // 폼 제출
+        }
+    });
+});
+
+
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body class="bg-img">
+    <br><br><br>
+
+    <div id="left_visual"></div>
+    <div id="right_visual"></div>
+    <div id="title">
+        <img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+        <span>{{ request.session.nickname | default:'손' }}님 환영합니다</span>
+    </div>
+    <div id="mainbutton">
+    <div class="button">
+        <a href="/diary">
+            <img src="../../static/images/main/icon1.png" alt="button1" height="60vw">
+        </a>
+    </div>
+    <div class="button">
+        <a href="/mydiary">
+            <img src="../../static/images/main/icon2.png" alt="button2" height="60vw">
+        </a>
+    </div>
+    <div class="button">
+        <a href="/board">
+            <img src="../../static/images/main/icon3.png" alt="button3" height="60vw">
+        </a>
+    </div>
+    <div class="button">
+        <a href="/searchengine">
+            <img src="../../static/images/main/icon4.png" alt="button4" height="60vw">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
+

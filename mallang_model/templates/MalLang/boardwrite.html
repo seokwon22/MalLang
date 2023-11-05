@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+	<style>
+        #boardwrite_button {
+            position: absolute;
+			top: 110%;
+    		right: 40%;
+			transform: translate(-50%, -50%);
+        }
+        .cancel_button:hover {
+    		cursor: pointer;
+			transform: scale(1.1);
+			transition: transform 0.1s;
+		}
+
+		.write_button:hover {
+			cursor: pointer;
+			transform: scale(1.1);
+			transition: transform 0.1s;
+		}
+
+	
+		button[type="submit"] {
+   			background: none;
+    		border: none;
+		}	
+    </style>
+</head>
+<body class="bg-img">
+		<br><br><br>
+	
+		<div id="left_visual3"></div> 
+		<div id="right_visual"></div>
+		<div id="title2">
+			<img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+			<span>그림일기공유</span>
+		</div>
+
+	<form id="myForm" action="{% url 'boardwrite' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="hidden" name="id" value="{{ dto.id }}">
+
+	<div style="width: 1500px; height: 500px; position: absolute; margin-top: 150px; left: 50%; transform: translate(-50%, -50%);">	
+		<table border="1" style="position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);font-family: Yeongdeok_Sea;">
+			<tr>
+				<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">작성자</th>
+				<td style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">{{ nickname }}</td>
+			</tr>
+			<tr>
+				<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">제목</th>
+				<td style="font-family: Yeongdeok_Sea;"><input type="text" name="title" style="width: 388px;font-family: Yeongdeok_Sea;"></td>
+			</tr>
+			<tr>
+				<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">이미지</th>
+				<td style="font-family: Yeongdeok_Sea;" bgcolor="#FFFFFF" >
+					<img id="preview" src="" alt=""  height="200">
+					<input type="file" name="image" accept="image/*" onchange="updatePreview(event)" >
+				</td>
+
+			</tr>
+			<tr>
+				<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">내용</th>
+				<td style="font-family: Yeongdeok_Sea;" bgcolor="#FFFFFF"><textarea cols="60" rows="10" name="content" style="font-family: Yeongdeok_Sea;"></textarea></td>
+			</tr>
+		</table>
+		<div id="boardwrite_button" >
+			<a href="/board">
+				<img src="../../static/images/main/cancelbtn.png" alt="취소버튼" class="cancel_button" style="top:18px; right:10px; position: absolute;" width="83px">
+			</a>
+			<button type="submit">
+				<img src="../../static/images/main/writebtn.png" alt="버튼" class="write_button" style="position: absolute;" width="80px">
+			</button>
+		</div>
+	</div>
+</form>
+
+
+<!--미리보기 자바스크립트-->
+<script>
+	function updatePreview(event) {
+	var input = event.target;
+	var reader = new FileReader();
+
+	reader.onload = function(){
+		var img = document.getElementById('preview');
+		img.src = reader.result;
+
+
+		var button = document.getElementById('boardwrite_button');
+        var imgHeight = img.clientHeight;
+
+        if (imgHeight > 100) { // 이미지의 높이가 200px 이상일 때
+            // button.style.marginTop = "80px";
+        } else {
+            // button.style.marginTop = "40px";
+            }
+        };
+
+		reader.readAsDataURL(input.files[0]);
+	}
+
+
+</script>
+</body>
+</html>

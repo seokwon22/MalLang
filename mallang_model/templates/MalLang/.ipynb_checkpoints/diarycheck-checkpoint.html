@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <style>
+         body {
+            text-align: center; /* body 안의 요소를 가운데 정렬 */
+        }
+        .table-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 700px; /* 테이블 컨테이너의 최대 너비 */
+        }
+    </style>
+</head>
+<script>
+    var date = "{{ date }}";
+    var weather = "{{ weather }}";
+    var emoji="{{ emoji }}";
+    var diary = "{{ diary }}";
+    var image_text= "{{ image_text }}";
+    var image_res = "{{ image_res }}";
+    var save1 = "{{ save1 }}";
+    var save2 = "{{ save2 }}";
+</script>
+<body class="background">
+    <br><br><br>
+    <div class="table-container">   
+        <form id="myForm"  action="{% url 'diarysave' %}" method="post" enctype="multipart/form-data" > {% csrf_token %}  
+            <table style="float: left; width: 350px; margin-right: 50px; border: 1px solid black;">
+                <tr class="top">
+                    <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날짜</th>
+                    <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ date }}</th>
+                    <input type="hidden" name="date" value="{{ date }}">
+                    <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날씨</th>
+                    <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ weather }}</th>
+                    <input type="hidden" name="weather" value="{{ weather }}">
+                    <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">기분</th>
+                    <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ emoji }}</th>
+                    <input type="hidden" name="emoji" value="{{ emoji }}">
+                </tr>
+                <tr>
+                    <td style="border:2px solid #444444; font-size: 15px;" bgcolor="#FFFFFF" colspan="6" height="350">
+                        <input type="hidden" name="image_text" id="imageText" value="{{ save1 }}"> 
+                        <img id="generatedImage" src="{{ image_text }}" alt="Generated Image" style="max-width: 100%; height: auto;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="300" bgcolor="#FFFFFF" style="font-family: SSShinb7Regular; font-size: 15px; text-align: left; vertical-align: top;">{{ diary }}</td>
+                    <input type="hidden" name="diary_text" value="{{ diary }}">
+                </tr>
+            </table>
+            <button type="submit" id="saveButton1" onclick="runMain(date, weather, emoji, diary, save1)">저장하기</button>
+            </form>
+        
+        <form id="myForm2"  action="{% url 'diarysave' %}" method="post" enctype="multipart/form-data" > {% csrf_token %}  
+            <table style="float: left; width: 350px; margin-right: 50px; border: 1px solid black;">
+                <tr class="top">
+                    <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날짜</th>
+                    <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ date }}</th>
+                    <input type="hidden" name="date" value="{{ date }}">
+                    <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날씨</th>
+                    <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ weather }}</th>
+                    <input type="hidden" name="weather" value="{{ weather }}">
+                    <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">기분</th>
+                    <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ emoji }}</th>
+                    <input type="hidden" name="emoji" value="{{ emoji }}">
+                </tr>
+                <tr>
+                    <td style="border:2px solid #444444; font-size: 15px;" bgcolor="#FFFFFF" colspan="6" height="350">
+                        <input type="hidden" name="image_text" id="imageText" value="{{ save2 }}"> 
+                        <img id="generatedImage" src="{{ image_res }}" alt="Generated Image" style="max-width: 100%; height: auto;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="300" bgcolor="#FFFFFF" style="font-family: SSShinb7Regular; font-size: 15px; text-align: left; vertical-align: top;">{{ diary }}</td>
+                    <input type="hidden" name="diary_text" value="{{ diary }}">
+                </tr>
+            </table>
+            <button type="submit" id="saveButton2" onclick="runMain(date, weather, emoji, diary, save2)">저장하기</button>
+            </form>
+        
+    </div> 
+        <button id="ttsButton">읽어주기</button>
+        <button id="exitButton">나가기</button>
+<br><br><br>
+</body>
+<script>
+    // function submitImage() {
+    //     // 이미지를 Base64 형태로 가져오기
+    //     var img = document.getElementById('generatedImage');
+    //     var canvas = document.createElement('canvas');
+    //     var ctx = canvas.getContext('2d');
+    //     canvas.width = img.width;
+    //     canvas.height = img.height;
+    //     ctx.drawImage(img, 0, 0);
+    //     var dataURL = canvas.toDataURL('image/png'); // 이미지를 Base64로 변환
+
+    //     // Base64 데이터를 hidden input에 할당
+    //     document.getElementById('imageText').value = dataURL;
+
+    //     // 폼 전송
+    //     document.getElementById('myForm').submit();
+    // }
+    function runMain(date, weather, emoji, diary, imageText) {
+        var xhr = new XMLHttpRequest();
+        var url = '{% url "diarysave" %}';
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.setRequestHeader('X-CSRFToken', getCookie('csrftoken')); // CSRF 토큰 추가
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                    // 요청이 성공적으로 완료된 경우
+                alert("저장이 완료되었습니다");
+                } 
+            else{
+                alert("저장 실패");
+            }
+        }
+        var data = 'date=' + encodeURIComponent(date) + '&weather=' + encodeURIComponent(weather) + '&emoji=' + encodeURIComponent(emoji) + '&diary=' + encodeURIComponent(diary) + '&image_text=' + encodeURIComponent(imageText);
+            xhr.send(data);
+        };
+</script>
+</html>

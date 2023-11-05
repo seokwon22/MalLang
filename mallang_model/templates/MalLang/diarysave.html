@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <style>
+         body {
+            text-align: center; /* body 안의 요소를 가운데 정렬 */
+        }
+        .table-container {
+            /* position:absolute; */
+            left:50%;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 700px; /* 테이블 컨테이너의 최대 너비 */
+        }
+        .mainbtn {
+        position: absolute;
+        top: 100%;
+        left: 47%;
+        transform: translate(-50%,-50%);
+        }
+
+    .btn1 {
+        cursor: pointer;
+    }
+
+    .btn1:hover {
+        transform: scale(1.05);
+        transition: transform 0.1s;
+    }
+    </style>
+</head>
+
+<script>
+    var date = "{{ date }}";
+    var weather = "{{ weather }}";
+    // var emoji="{{ emoji }}";
+    var diary = "{{ diary }}";
+    var save = "{{ save }}";
+    var csrfToken = "{{ csrf_token }}";
+
+    console.log('Diary Value:', diary);
+
+    function playAudio() {
+                // 일기 내용을 가져옵니다.
+                var diaryContent = "{{ diary }}";
+                if (diaryContent) {
+                    console.log('Diary Content:', diaryContent);
+                // AJAX 또는 fetch를 사용하여 이 내용을 서버에 전송합니다.
+                    fetch('/tts_diary/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrfToken
+                        },
+                        body: JSON.stringify({ content: diaryContent })
+                    }).then(response => response.blob())
+                    .then(data => {
+                        var audioPlayer = document.getElementById("audioPlayer");
+                        audioPlayer.src = URL.createObjectURL(data);
+                        audioPlayer.play();
+                    });
+                }
+            };
+
+</script>
+<body class="background">
+    <br><br><br><br><br>
+    <div class="table-container" style="display: flex; justify-content: center;">
+        <table style="width: 350px; border: 1px solid black;">
+            <tr class="top">
+                <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날짜</th>
+                <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ date }}</th>
+                <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">날씨</th>
+                <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ weather }}</th>
+                <th scope="col" width="10%" style="font-size: 14px;" bgcolor="#F2D026">기분</th>
+                <th scope="col" width="20%" style="font-size: 12px;" bgcolor="#FFFFFF">{{ emoji }}</th>
+            </tr>
+            <tr>
+                <td style="border:2px solid #444444; font-size: 15px;" bgcolor="#FFFFF1" colspan="6" height="350">
+                <img id="generatedImage" src="../../{{ save }}" alt="Generated Image" style="max-width: 100%; height: auto;">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" height="300" bgcolor="#FFFFFF" style="font-family: SSShinb7Regular; font-size: 15px; text-align: left; vertical-align: top;">{{ diary }}</td>
+            </tr>
+        </table>
+    </div>
+    <br><br><br> <br><br><br> 
+    <div class="mainbtn"><br><br><br> 
+        <br><br><br> 
+        <button class="btn1" onclick="location.href='{% url 'main' %}'" style="border: 0px; background: none; ">
+            <img class="btn1" src="../../static/images/search/gomain.png" style="width:150px;" width="100px">
+        </button>
+        <button id="ttsButton" class="ttsbtn" style="width: 110px; border:none; background: none;" onclick="playAudio()">
+            <img src="../../static/images/main/read.png" alt="읽어줘" class="btn1" width="150px">
+        </button>
+        <br>
+        <audio id="audioPlayer" controls style="margin-left: 10%;"></audio>
+    </div>
+
+
+
+<br><br><br>
+</body>
+
+<script>
+
+
+</script>
+</html>

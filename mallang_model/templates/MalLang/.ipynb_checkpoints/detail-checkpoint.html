@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+</head>
+<body class="bg-img">
+		<br><br><br>
+
+		<div id="left_visual3"></div>
+		<div id="right_visual"></div>
+		<div id="title2">
+			<img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+			<span>내 그림일기</span>
+		</div>
+
+	<table border="1" style="position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);font-family: Yeongdeok_Sea;">
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">작성자</th>
+			<td style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026"><input type="text" value="{{ dto.nickname }}" style="width: 388px;font-family: Yeongdeok_Sea;" readonly></td>
+		</tr>
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">제목</th>
+			<td style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026"><input type="text" value="{{ dto.title }}" style="width: 388px;font-family: Yeongdeok_Sea;" readonly></td>
+		</tr>
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">그림</th>
+			{% if dto.image%}
+			<td style="font-family: Yeongdeok_Sea; text-align: center;" bgcolor="#F2D026 "><img src="{{ dto.image.url }}" alt="" width="370"></td>
+			{% endif %}
+		</tr>
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">내용</th>
+			<td style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026"><textarea rows="10" cols="60" style="font-family: Yeongdeok_Sea;"  readonly>{{ dto.content }}</textarea></td>
+		</tr>
+		<tr>
+			<td>
+
+				<a href="/board">
+            	<img src="../../static/images/login/list.png" alt="목록" style="position: absolute; top: 110%; left: 50%; transform: translate(-50%, -50%);" width="80px">
+        		</a>
+				<a href="{% url 'update' dto.id %}">
+            	<img src="../../static/images/login/update.png" alt="수정" style="position: absolute; top: 110%; left: 65%; transform: translate(-50%, -50%);" width="80px">
+        		</a>
+				<a href="{% url 'delete' dto.id %}">
+            	<img src="../../static/images/login/delete.png" alt="삭제" style="position: absolute; top: 110%; left: 80%; transform: translate(-50%, -50%);" width="80px">
+        		</a>
+
+<!--				<input type="button" value="목록" onclick="location.href='/'">-->
+<!--				<input type="button" value="수정" onclick="location.href='/'">-->
+<!--				<input type="button" value="삭제" onclick="location.href='/'">-->
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

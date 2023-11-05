@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'SSShinb7Regular';
+    src: url('font/SSShinb7Regular.ttf');
+}
+@font-face {
+    font-family:'Yeongdeok_Sea';
+    src: url('font/Yeongdeok_Sea.ttf');
+}
+
+.top > th {
+    font-family: 'Yeongdeok_Sea';
+    font-size: 20px;
+}
+

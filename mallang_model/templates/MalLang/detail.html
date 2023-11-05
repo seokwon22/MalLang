@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+	<style>
+		#detail_button img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: transform 0.1s;
+        }
+		.table-container {
+    	margin-top: 40px; /* 상단에 고정된 부분의 높이만큼 여백을 둘 수 있습니다. */
+ 		 }
+	</style>
+</head>
+<body class="bg-img">
+		<br><br><br>
+
+		<div id="left_visual3"></div>
+		<div id="right_visual"></div>
+		<div id="title2">
+			<img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+			<span>내 그림일기</span>
+		</div>
+		<br><br>
+<div style="width: 1500px; height: 500px; position: absolute;  margin-top: 150px; left: 50%; transform: translate(-50%, -50%);">	
+	<table border="1" style="position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);font-family: Yeongdeok_Sea;">
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">작성자</th>
+			<td style="font-family: Yeongdeok_Sea; width: 388px;"  bgcolor="#FFFFFF">{{ dto.nickname }}</td>
+		</tr>
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">제목</th>
+			<td style="font-family: Yeongdeok_Sea; width: 388px;"" bgcolor="#FFFFFF">{{ dto.title }}</td>
+		</tr>
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">그림</th>
+			{% if dto.image %}
+			<td style="font-family: Yeongdeok_Sea; text-align: center; " bgcolor="#FFFFFF "><img src="{{ dto.image.url }}" alt="" height="200"></td>
+			{% else %}
+			<td style="font-family: Yeongdeok_Sea; text-align: center; " bgcolor="#FFFFFF "></td>
+			{% endif %}
+		</tr>
+		<tr>
+			<th style="font-family: Yeongdeok_Sea;" bgcolor="#F2D026">내용</th>
+			<td style="font-family: Yeongdeok_Sea; width: 388px; height:250px;" bgcolor="#FFFFFF">{{ dto.content }}</textarea></td>
+		</tr>
+		<tr>
+			<td id="detail_button">
+				<a href="/board">
+            	<img src="../../static/images/login/list.png" alt="목록" style="position: absolute; top: 106%; left: 87%; " width="80px">
+        		</a>
+				{% if  notice_auth  == True %}
+				<a href="{% url 'update' dto.id %}">
+            	<img src="../../static/images/login/update.png" alt="수정" style="position: absolute; top: 106%; left: 70%; " width="80px">
+        		</a>
+				<a href="{% url 'delete' dto.id %}">
+            	<img src="../../static/images/login/delete.png" alt="삭제" style="position: absolute; top: 106%; left: 53%;" width="80px">
+        		</a>
+				{% endif %}
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

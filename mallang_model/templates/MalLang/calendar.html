@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+    <script src="{% static 'js/calendar.js' %}" defer></script>
+</head>
+<body class="bg-img">
+<!--    <div id="background"></div>-->
+<br><br><br>
+    <div id="left_visual3"></div>
+    <div id="right_visual"></div>
+    <div id="title2">
+        <img src="../../static/images/base/titletag.png" alt="제목 이미지" height="150" width="700">
+        <span class="year-month"></span>
+    </div>
+<div class="calendar_box">
+    <div class="calendar">
+        <div class="header">
+            <div class="nav">
+                <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                <button class="nav-btn go-today" onclick="goToday()">Today</button>
+                <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+            </div>
+        </div>
+    <div class="main">
+      <div class="days">
+        <div class="day">일</div>
+        <div class="day">월</div>
+        <div class="day">화</div>
+        <div class="day">수</div>
+        <div class="day">목</div>
+        <div class="day">금</div>
+        <div class="day">토</div>
+      </div>
+      <div class="dates" style="background-color: #FFFFFF; opacity: 0.7;"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
